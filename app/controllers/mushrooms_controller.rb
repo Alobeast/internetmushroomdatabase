@@ -1,6 +1,5 @@
 class MushroomsController < ApplicationController
   def index
-    @mushrooms = Mushroom.all
     @mushrooms = Mushroom.where(nil) # creates an anonymous scope
     filtering_params(params).each do |key, value|
       @mushrooms = @mushrooms.public_send(key, value) if value.present?
