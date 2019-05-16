@@ -1,2 +1,4 @@
 <h1>Mushrooms#index</h1>
-<p>Find me in app/views/mushrooms/index.html.erb</p>
+<p>There are <%= Mushroom.count %> mushrooms in the database</p>
+<p>There are <%= Mushroom.edible(false).count %> poisonous mushrooms in the database</p>
+<p>There are <%= Mushroom.edible(true).count %> edible mushrooms in the database</p>
