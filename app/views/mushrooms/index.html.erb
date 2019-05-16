@@ -23,9 +23,10 @@
 <div>
   <% if @mushrooms.count > 0 %>
     <p>Your search returned <%= @mushrooms.count %> results / 50 results per page</p>
-    <table>
-      <thead>
+    <table class="table table-striped">
+      <thead class="thead-dark">
         <tr>
+          <th>Mushroom code</th>
           <% @mushroom_attributes.each do |mushroom_attribute| %>
           <th><%= mushroom_attribute.gsub('_', ' ').capitalize %></th>
           <% end %>
@@ -34,6 +35,7 @@
       <tbody>
         <% @mushrooms.each do |mushroom| %>
         <tr>
+          <td><%= mushroom.id %></td>
           <% @mushroom_attributes.each do |mushroom_attribute| %>
           <td><%= mushroom[mushroom_attribute] %></td>
           <% end %>
