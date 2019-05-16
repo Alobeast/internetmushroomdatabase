@@ -24,4 +24,30 @@ class Mushroom < ApplicationRecord
   scope :habitat, -> (habitat) { where habitat: habitat}
   # Each of these scopes defines a class method on Product that can be uses to limit the results you get back.
   # the controller can use these scopes to filter results for example => @poisonous-mushrooms = Mushroom.edible(false)
+
+  MUSHROOM_CONSTANTS = {
+    :edible => [true, false],
+    :cap_shape => ["bell", "conical", "convex", "flat", "knobbed", "sunken"],
+    :cap_surface => ["fibrous", "grooves", "scaly", "smooth"],
+    :cap_color => ["brown", "buff", "cinnamon", "gray", "green", "pink", "purple", "red", "white", "yellow"],
+    :bruises => [true, false],
+    :odor => ["almond", "anise", "creosote", "fishy", "foul", "musty", "none", "pungent", "spicy"],
+    :gill_attachment => ["attached", "descending", "free", "notched"],
+    :gill_spacing => ["close", "crowded", "distant"],
+    :gill_size => ["broad", "narrow"],
+    :gill_color => ["black", "brown", "buff", "chocolate", "gray", "green", "orange", "pink", "purple", "red", "white", "yellow"],
+    :stalk_shape => ["enlarging", "tapering"],
+    :stalk_root => ["bulbous", "club", "cup", "equal", "rhizomorphs", "rooted", nil],
+    :stalk_surface_above_ring => ["fibrous", "scaly", "silky", "smooth"],
+    :stalk_surface_below_ring => ["fibrous", "scaly", "silky", "smooth"],
+    :stalk_color_above_ring => ["brown", "buff", "cinnamon", "gray", "orange", "pink", "red", "white", "yellow"],
+    :stalk_color_below_ring => ["brown", "buff", "cinnamon", "gray", "orange", "pink", "red", "white", "yellow"],
+    :veil_type => ["partial", "universal"],
+    :veil_color => ["brown", "orange", "white", "yellow"],
+    :ring_number => [0, 1, 2],
+    :ring_type => ["cobwebby", "evanescent", "flaring", "large", "none", "pendant", "sheathing", "zone"],
+    :spore_print_color => ["black", "brown", "buff", "chocolate", "green", "orange", "purple", "white", "yellow"],
+    :population => ["abundant", "clustered", "numerous", "scattered", "several", "solitary"],
+    :habitat => ["grasses", "leaves", "meadows", "paths", "urban", "waste", "woods"]
+  }
 end

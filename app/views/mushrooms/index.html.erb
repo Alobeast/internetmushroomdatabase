@@ -1,4 +1,22 @@
-<h1>Mushrooms#index</h1>
+<h1>Welcome to the Internet Mushroom DataBase</h1>
 <p>There are <%= Mushroom.count %> mushrooms in the database</p>
 <p>There are <%= Mushroom.edible(false).count %> poisonous mushrooms in the database</p>
 <p>There are <%= Mushroom.edible(true).count %> edible mushrooms in the database</p>
+
+<h1>What kind of mushrooms are you looking for?</h1>
+<div>
+  <%= form_tag root_path, method: :get do %>
+
+  <% @mushroom_attributes.each do |mushroom_attribute| %>
+
+  <%= label_tag(mushroom_attribute) %>
+  <%= select_tag "#{mushroom_attribute}", options_for_select([""] + Mushroom::MUSHROOM_CONSTANTS[mushroom_attribute.to_sym]) %>
+  <% end %>
+
+  <%= submit_tag "Search" , class: "btn-orange" %>
+  <%= link_to "Remove filter", root_path %>
+
+<% end %>
+</div>
+
+<p>Your search returned <%= @mushrooms.count %> results</p>
