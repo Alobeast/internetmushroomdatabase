@@ -20,27 +20,32 @@
 </div>
 
 
+<div>
+  <% if @mushrooms.count > 0 %>
+    <p>Your search returned <%= @mushrooms.count %> results / 50 results per page</p>
+    <table>
+      <thead>
+        <tr>
+          <% @mushroom_attributes.each do |mushroom_attribute| %>
+          <th><%= mushroom_attribute.gsub('_', ' ').capitalize %></th>
+          <% end %>
+        </tr>
+      </thead>
+      <tbody>
+        <% @mushrooms.each do |mushroom| %>
+        <tr>
+          <% @mushroom_attributes.each do |mushroom_attribute| %>
+          <td><%= mushroom[mushroom_attribute] %></td>
+          <% end %>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <p>No mushrooms match your search criterias</p>
+  <% end %>
+  <div>
+      <%= will_paginate @mushrooms %>
+  </div>
+</div>
 
-<% if @mushrooms.count > 0 %>
-  <p>Your search returned <%= @mushrooms.count %> results</p>
-  <table>
-    <thead>
-      <tr>
-        <% @mushroom_attributes.each do |mushroom_attribute| %>
-        <th><%= mushroom_attribute.gsub('_', ' ').capitalize %></th>
-        <% end %>
-      </tr>
-    </thead>
-    <tbody>
-      <% @mushrooms.each do |mushroom| %>
-      <tr>
-        <% @mushroom_attributes.each do |mushroom_attribute| %>
-        <td><%= mushroom[mushroom_attribute] %></td>
-        <% end %>
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
-<% else %>
-  <p>No mushrooms match your search criterias</p>
-<% end %>
