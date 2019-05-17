@@ -1,8 +1,8 @@
 class MushroomsController < ApplicationController
   def index
-    @mushrooms = Mushroom.where(nil).page(params[:page]).per_page(50) # creates an anonymous scope
+    @mushrooms = Mushroom.where(nil).page(params[:page]).per_page(25) # creates an anonymous scope
     filtering_params(params).each do |key, value|
-      @mushrooms = @mushrooms.public_send(key, value).page(params[:page]).per_page(50) if value.present?
+      @mushrooms = @mushrooms.public_send(key, value).page(params[:page]).per_page(25) if value.present?
       # public_send Invokes the method identified by symbol, passing it any arguments specified. Unlike send, public_send calls public methods only.
     end
     @mushroom_attributes = Mushroom.attribute_names - ["created_at", "updated_at", "id"]
