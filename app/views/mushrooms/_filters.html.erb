@@ -1,0 +1,17 @@
+<div class="filters">
+    <p>Currently there are <%= Mushroom.count %> mushrooms in the database!</p>
+    <h2>What kind of mushrooms are you looking for?</h2>
+
+    <%= form_tag root_path, method: :get do %>
+
+    <% @mushroom_attributes.each do |mushroom_attribute| %>
+
+    <%= label_tag(mushroom_attribute) %>
+    <%= select_tag "#{mushroom_attribute}", options_for_select([""] + Mushroom::MUSHROOM_CONSTANTS[mushroom_attribute.to_sym]) %>
+    <% end %>
+    <br>
+    <%= submit_tag "Search" , class: "btn btn-primary" %>
+    <%= link_to "Reset filters", root_path, class: "btn btn-warning"  %>
+
+    <% end %>
+</div>
