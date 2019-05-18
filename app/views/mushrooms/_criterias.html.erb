@@ -1,0 +1,6 @@
+<b>Your search criterias:</b>
+<ul class="list-group">
+  <% @criterias.each do |key, value| %>
+  <li class="list-group-item"><%= key.gsub('_', ' ') %>: <%= value %></li>
+  <% end %>
+</ul>
