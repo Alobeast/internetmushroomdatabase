@@ -6,6 +6,7 @@ class MushroomsController < ApplicationController
       # public_send Invokes the method identified by symbol, passing it any arguments specified. Unlike send, public_send calls public methods only.
     end
     @mushroom_attributes = Mushroom.attribute_names - ["created_at", "updated_at", "id"]
+    @criterias = filtering_params(params).delete_if {|key, value| value == "" }
   end
 
   private
