@@ -1,24 +1,16 @@
-# README
+# IMDB
+The Internet Mushroom Database lets you go through more than 8000 🍄 and filter them thanks to 23 characteristics.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Source:
+Dua, D. and Graff, C. (2019). UCI Machine Learning Repository http://archive.ics.uci.edu/ml
+Irvine, CA: University of California, School of Information and Computer Science.
 
-Things you may want to cover:
+[Link to the mushroom dataset](https://archive.ics.uci.edu/ml/datasets/Mushroom)
 
-* Ruby version
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## Setup
+* ruby '2.5.3'
+* sqlite3
+* runs on localhost
+* rails db:migrate
+* rails db:seed
